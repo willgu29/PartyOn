@@ -18,6 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -26,10 +31,11 @@
 
 -(IBAction)createEvent:(UIButton *)sender
 {
-    UINavigationController *navigiationVC = [[UINavigationController alloc] init];
+    
     
     CreateEventViewController *createVC = [[CreateEventViewController alloc] init];
-    [self presentViewController:createVC animated:YES completion:nil];
+
+    [self.navigationController pushViewController:createVC animated:YES];
 }
 
 /*

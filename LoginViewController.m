@@ -30,7 +30,10 @@
 -(IBAction)loginButton:(UIButton *)sender
 {
     MainViewController *mainVC = [[MainViewController alloc ] init];
-    [self presentViewController:mainVC animated:YES completion:nil];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    
+    
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 /*

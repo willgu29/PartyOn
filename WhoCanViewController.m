@@ -26,7 +26,7 @@
 
 -(IBAction)doneButton:(UIButton *)sender
 {
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*
