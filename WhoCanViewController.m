@@ -1,18 +1,18 @@
 //
-//  MainViewController.m
+//  WhoCanViewController.m
 //  Party On
 //
 //  Created by William Gu on 11/11/14.
 //  Copyright (c) 2014 William Gu. All rights reserved.
 //
 
-#import "MainViewController.h"
-#import "CreateEventViewController.h"
-@interface MainViewController ()
+#import "WhoCanViewController.h"
+
+@interface WhoCanViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation WhoCanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,12 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)createEvent:(UIButton *)sender
+-(IBAction)doneButton:(UIButton *)sender
 {
-    UINavigationController *navigiationVC = [[UINavigationController alloc] init];
     
-    CreateEventViewController *createVC = [[CreateEventViewController alloc] init];
-    [self presentViewController:createVC animated:YES completion:nil];
 }
 
 /*

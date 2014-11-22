@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)nextButton:(UIButton *)sender
+{
+    
+}
+
 /*
 #pragma mark - Navigation
 

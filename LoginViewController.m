@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "MainViewController.h"
 #import <Parse/Parse.h>
 
 @interface LoginViewController ()
@@ -24,6 +25,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)loginButton:(UIButton *)sender
+{
+    MainViewController *mainVC = [[MainViewController alloc ] init];
+    [self presentViewController:mainVC animated:YES completion:nil];
 }
 
 /*
