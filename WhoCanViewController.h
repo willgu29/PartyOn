@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WhoCanViewController : UIViewController
+@interface WhoCanViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end

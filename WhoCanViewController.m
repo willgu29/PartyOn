@@ -9,6 +9,9 @@
 #import "WhoCanViewController.h"
 
 @interface WhoCanViewController ()
+{
+    NSArray *dataSourcePicker;
+}
 
 @end
 
@@ -17,7 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self createDataForPicker];
+    
 }
+
+//TO CHANGE VALUES IN PICKER JUST MODIFY THE ARRAY BELOW
+-(void)createDataForPicker
+{
+    dataSourcePicker = @[@"Only Girls", @"Only Guys", @"Everyone", @"Guest List", @"Guest List and Girls"];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -27,6 +41,31 @@
 -(IBAction)doneButton:(UIButton *)sender
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+}
+
+
+
+
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [dataSourcePicker objectAtIndex:row];
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [dataSourcePicker count];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
 }
 
 /*
