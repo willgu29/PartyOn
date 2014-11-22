@@ -35,7 +35,7 @@
     WhoCanViewController *whoVC = [[WhoCanViewController alloc] init];
     
     
-    [self.navigationController presentViewController:whoVC animated:YES completion:nil];
+    [self.navigationController pushViewController:whoVC animated:YES];
 }
 
 /*
