@@ -31,7 +31,10 @@
     dataSourcePicker = @[@"Only Girls", @"Only Guys", @"Everyone", @"Guest List", @"Guest List and Girls"];
 }
 
-
+-(void)saveData
+{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -40,8 +43,10 @@
 
 -(IBAction)doneButton:(UIButton *)sender
 {
+    [self saveData];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
