@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "MainViewController.h"
 #import <Parse/Parse.h>
 @interface AppDelegate ()
 
@@ -26,13 +27,24 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
     
-    self.window.rootViewController = loginVC;
+    
+    self.genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
+    if (self.genderType)
+    {
+        MainViewController *mainVC = [[MainViewController alloc] init];
+        self.window.rootViewController = mainVC;
+    }
+    else
+    {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        self.window.rootViewController = loginVC;
+    }
+    
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     
     // Register for Push Notitications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
@@ -43,6 +55,7 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     //**** End Register
+   
     
     return YES;
 }

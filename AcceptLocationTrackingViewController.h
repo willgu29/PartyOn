@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AcceptLocationTrackingViewController : UIViewController
+#import <MapKit/MapKit.h>
+@interface AcceptLocationTrackingViewController : UIViewController <CLLocationManagerDelegate>
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "SurveyViewController.h"
-
+#import "MainViewController.h"
 @interface SurveyViewController ()
 
 @end
@@ -24,6 +24,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)guyButton:(UIButton *)sender
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"genderType"];
+    [self segueToMainVC];
+}
+
+-(IBAction)girlButton:(UIButton *)sender
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"genderType"];
+    [self segueToMainVC];
+
+}
+
+-(void)segueToMainVC
+{
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    [self presentViewController:navVC animated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 

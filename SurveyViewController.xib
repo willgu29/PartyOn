@@ -19,12 +19,18 @@
                     <state key="normal" title="I'm a Guy">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="guyButton:" destination="-1" eventType="touchUpInside" id="HWC-Uk-dbv"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-1b-LvA">
                     <rect key="frame" x="129" y="474" width="62" height="30"/>
                     <state key="normal" title="I'm a Girl">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="girlButton:" destination="-1" eventType="touchUpInside" id="uuD-qF-aII"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

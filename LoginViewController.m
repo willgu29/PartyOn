@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "MainViewController.h"
 #import <Parse/Parse.h>
+#import "AcceptLocationTrackingViewController.h"
 
 @interface LoginViewController ()
 
@@ -29,11 +30,9 @@
 
 -(IBAction)loginButton:(UIButton *)sender
 {
-    MainViewController *mainVC = [[MainViewController alloc ] init];
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    
-    
-    [self presentViewController:navVC animated:YES completion:nil];
+    AcceptLocationTrackingViewController *acceptVC = [[AcceptLocationTrackingViewController alloc] init];
+    [self presentViewController:acceptVC animated:YES completion:nil];
+   
 }
 
 /*

@@ -54,7 +54,6 @@ const int MINIMUM_METERS_AWAY = 10;
     CLLocation *Triangle = [self locationOfFratWithDegrees:34 minutes:04 seconds:04.42 andDegreesLong:-118 andMinutesLong:27 andSecondsLong:01.97];
     //???: treehouse or actual ZBT? <--- TREEHOUSE
     CLLocation *ZBT = [self locationOfFratWithDegrees:34 minutes:04 seconds:03.77 andDegreesLong:-118 andMinutesLong:26 andSecondsLong:56.27];
-    NSLog(@"ZBT: %@", ZBT);
     
     _arrayOfFratLocations = @[AEP, AGW, BQP, DSF, DTD, LCA, FDQ, FKS, PKA, PKF, SAE, SC, SN, SFE, SP, QC, QDC, QX, Triangle, ZBT];
 }

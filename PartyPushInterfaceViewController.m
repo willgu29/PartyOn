@@ -27,7 +27,11 @@
     // Do any additional setup after loading the view from its nib.
     
     _locationData = [[LocationData alloc] init];
-    
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    if (delegate.locationManager == nil)
+    {
+        delegate.locationManager = [[CLLocationManager alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

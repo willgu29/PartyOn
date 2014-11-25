@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic) int genderType; //0 Undetermined, 1 Girl, 2 Boy
 
 
 @end

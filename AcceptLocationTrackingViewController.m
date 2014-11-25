@@ -5,9 +5,9 @@
 //  Created by William Gu on 11/24/14.
 //  Copyright (c) 2014 William Gu. All rights reserved.
 //
-
+#import "SurveyViewController.h"
 #import "AcceptLocationTrackingViewController.h"
-
+#import "AppDelegate.h"
 @interface AcceptLocationTrackingViewController ()
 
 @end
@@ -22,6 +22,30 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)acceptLocation:(UIButton *)sender
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+    {
+        delegate.locationManager = [[CLLocationManager alloc] init];
+        delegate.locationManager.delegate = self;
+
+        [delegate.locationManager requestAlwaysAuthorization];
+    }
+    else
+    {
+        SurveyViewController *surveyVC = [[SurveyViewController alloc] init];
+        [self presentViewController:surveyVC animated:YES completion:nil];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    NSLog(@"Accepted!");
+    SurveyViewController *surveyVC = [[SurveyViewController alloc] init];
+    [self presentViewController:surveyVC animated:YES completion:nil];
 }
 
 /*
