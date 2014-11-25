@@ -26,12 +26,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    _locationData = [[LocationData alloc] init];
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    if (delegate.locationManager == nil)
-    {
-        delegate.locationManager = [[CLLocationManager alloc] init];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,17 +34,34 @@
 }
 
 //Will automatically send CLLocationManagerDelegate CLVisits (determined by substantial amount of time spent at a location
--(void)startMonitoringVisits
+-(void)startMonitoring
 {
+    NSLog(@"Monitoring visit!");
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    if (delegate.locationManager == nil)
+    {
+        delegate.locationManager = [[CLLocationManager alloc] init];
+    }
+    if (_locationData == nil)
+    {
+        _locationData = [[LocationData alloc] init];
+
+    }
     delegate.locationManager.delegate = _locationData;
     [delegate.locationManager startMonitoringVisits];
+    
+    
+//    [delegate.locationManager startUpdatingLocation]; use this to be precise as precise
+    
+    //TODO: support iOS 7
 }
 
 -(void)stopMonitoringVisits
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     [delegate.locationManager stopMonitoringVisits];
+    
+//    [delegate.locationManager stopMonitoringVisits];
 }
 
 -(IBAction)activateDeactive:(UIButton *)sender
@@ -60,14 +71,18 @@
         isActivated = NO;
         //DEACTIVE PUSH and LOCATION TRACKING
         [self stopMonitoringVisits];
+        [sender setTitle:@"Activate" forState:UIControlStateNormal];
     }
     else
     {
         isActivated = YES;
         //ACTIVATE PUSH and LOCATION TRACKING
-        [self startMonitoringVisits];
+        [self startMonitoring];
+        [sender setTitle:@"Deactive" forState:UIControlStateNormal];
+
     }
 }
+
 
 
 

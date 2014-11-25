@@ -7,7 +7,7 @@
 //
 
 #import "LocationData.h"
-
+#import <Parse/Parse.h>
 @interface LocationData()
 
 @property (nonatomic, strong) NSArray *arrayOfFratLocations;
@@ -28,6 +28,7 @@ const int MINIMUM_METERS_AWAY = 10;
     }
     return self;
 }
+
 
 //CHANGE THIS TO ADD ADDITIONAL TEST LOCATIONS WHEN PARTYING*********
 -(void)initFratLocations
@@ -89,12 +90,25 @@ const int MINIMUM_METERS_AWAY = 10;
 //An array of CLLocation Objects (CLLocation includes a coordinate and method called distanceFromLocation:(CLLocation)location. Returns CLLocationDistance (meters in double)
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    
+    NSLog(@"Location updated");
+}
+
+-(void)locationManagerDidResumeLocationUpdates:(CLLocationManager *)manager
+{
+    NSLog(@"Resumed Updates");
+}
+
+-(void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager
+{
+    NSLog(@"Paused Updates");
 }
 
 //CLVisit has coordinate
 -(void)locationManager:(CLLocationManager *)manager didVisit:(CLVisit *)visit
 {
+    NSLog(@"New Visit!");
+    [self saveVisitData:visit];
+    
     if ([visit.departureDate isEqualToDate:[NSDate distantFuture]]){
         // User has arrived, but not left, the location
         
@@ -104,34 +118,53 @@ const int MINIMUM_METERS_AWAY = 10;
     }
 }
 
+-(void)saveVisitData:(CLVisit *)visit
+{
+    PFObject *visitPF = [PFObject objectWithClassName:@"VisitData"];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
+    visitPF[@"Coordinate"] = point;
+    visitPF[@"arrival"] = visit.arrivalDate;
+    visitPF[@"departure"] = visit.departureDate;
+    visitPF[@"accuracy"] = [NSString stringWithFormat:@"%f",visit.horizontalAccuracy];
+    [visitPF saveInBackground];
+}
+
+//FOR TESTING PURPOSES, what does the 10meter radius get/consider a visit?
+-(void)saveFratVisitData:(CLVisit *)visit andFratNumber:(int)number
+{
+    PFObject *visitPF = [PFObject objectWithClassName:@"SpecificVisit"];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
+    visitPF[@"Coordinate"] = point;
+    visitPF[@"arrival"] = visit.arrivalDate;
+    visitPF[@"departure"] = visit.departureDate;
+    visitPF[@"accuracy"] = [NSString stringWithFormat:@"%f",visit.horizontalAccuracy];
+    visitPF[@"FratNumber"] = [NSString stringWithFormat:@"%d",number];
+    [visitPF saveInBackground];
+}
+
 -(void)checkPlaceLeft:(CLVisit *)visit
 {
+    NSLog(@"Checking place left");
     CLLocation *visitedLocation = [[CLLocation alloc] initWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
     
+    int fratNum = 0;
+
     for (CLLocation *fratLocation in _arrayOfFratLocations)
     {
         CLLocationDistance distance = [visitedLocation distanceFromLocation:fratLocation];
         if (distance < MINIMUM_METERS_AWAY)
         {
             //If person is within 10meters of the CENTER of the frat.. we'll consider them to be at that party
-            
+            [self saveFratVisitData:visit andFratNumber:fratNum];
             //Decrement that frat's counter
             
             return;
         }
+        fratNum++;
     }
     
     
 }
-
-
--(void)pushDataToParse
-{
-    
-}
-
-
-
 
 
 //CLRegion is a defined area to monitor we give to CLLocationManager
