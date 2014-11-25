@@ -7,11 +7,15 @@
 //
 
 #import "PartyPushInterfaceViewController.h"
-
+#import <MapKit/MapKit.h>
+#import "AppDelegate.h"
+#import "LocationData.h"
 @interface PartyPushInterfaceViewController ()
 {
     BOOL isActivated;
 }
+
+@property (nonatomic, strong) LocationData *locationData;
 
 
 @end
@@ -28,19 +32,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Will automatically send CLLocationManagerDelegate CLVisits (determined by substantial amount of time spent at a location
+-(void)startMonitoringVisits
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.locationManager.delegate = _locationData;
+    [delegate.locationManager startMonitoringVisits];
+}
+
+-(void)stopMonitoringVisits
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.locationManager stopMonitoringVisits];
+}
+
 -(IBAction)activateDeactive:(UIButton *)sender
 {
     if (isActivated)
     {
         isActivated = NO;
         //DEACTIVE PUSH and LOCATION TRACKING
+        [self stopMonitoringVisits];
     }
     else
     {
         isActivated = YES;
         //ACTIVATE PUSH and LOCATION TRACKING
+        [self startMonitoringVisits];
     }
 }
+
 
 
 
