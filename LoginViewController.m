@@ -10,6 +10,8 @@
 #import "MainViewController.h"
 #import <Parse/Parse.h>
 #import "AcceptLocationTrackingViewController.h"
+#import "AppDelegate.h"
+#import "SurveyViewController.h"
 
 @interface LoginViewController ()
 
@@ -30,8 +32,18 @@
 
 -(IBAction)loginButton:(UIButton *)sender
 {
-    AcceptLocationTrackingViewController *acceptVC = [[AcceptLocationTrackingViewController alloc] init];
-    [self presentViewController:acceptVC animated:YES completion:nil];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    delegate.locationManager = [[CLLocationManager alloc] init];
+    if ([delegate.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        AcceptLocationTrackingViewController *acceptVC = [[AcceptLocationTrackingViewController alloc] init];
+        [self presentViewController:acceptVC animated:YES completion:nil];
+    }
+    else
+    {
+        SurveyViewController *surveyVC = [[SurveyViewController alloc] init];
+        [self presentViewController:surveyVC animated:YES completion:nil];
+    }
+    
    
 }
 

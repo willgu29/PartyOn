@@ -29,9 +29,12 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
     {
-        delegate.locationManager = [[CLLocationManager alloc] init];
-        delegate.locationManager.delegate = self;
+        if (delegate.locationManager == nil)
+        {
+            delegate.locationManager = [[CLLocationManager alloc] init];
 
+        }
+        delegate.locationManager.delegate = self;
         [delegate.locationManager requestAlwaysAuthorization];
     }
     else

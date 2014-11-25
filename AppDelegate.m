@@ -32,11 +32,13 @@
     self.genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
     if (self.genderType)
     {
+        //IMPLIES Location/Push/Gender have been accepted/denied and chosen
         MainViewController *mainVC = [[MainViewController alloc] init];
         self.window.rootViewController = mainVC;
     }
     else
     {
+        //Go through process of accepting/declining push/location and choosing gender
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         self.window.rootViewController = loginVC;
     }
