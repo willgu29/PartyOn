@@ -8,10 +8,35 @@
 
 #import "LocationData.h"
 
+@interface LocationData()
+
+@property (nonatomic, strong) NSArray *arrayOfFratLocations;
+
+@end
+
+const int MINIMUM_METERS_AWAY = 10;
+
 @implementation LocationData
 
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self initFratLocations];
+    }
+    return self;
+}
 
+-(void)initFratLocations
+{
+    CLLocation *testCoord = [[CLLocation alloc] initWithLatitude:19 longitude:19];
+    CLLocation *myRoom = [[CLLocation alloc] initWithLatitude:100 longitude:201];
+    CLLocation *piKapp = [[CLLocation alloc] initWithLatitude:100 longitude:201];
+    
+    _arrayOfFratLocations = @[testCoord, myRoom, piKapp];
+}
 
 #pragma mark -CLLocationManager
 
@@ -24,10 +49,40 @@
 //CLVisit has coordinate
 -(void)locationManager:(CLLocationManager *)manager didVisit:(CLVisit *)visit
 {
+    if ([visit.departureDate isEqualToDate:[NSDate distantFuture]]){
+        // User has arrived, but not left, the location
+        
+    } else {
+        // The visit is complete
+        [self checkPlaceLeft:visit];
+    }
+}
+
+-(void)checkPlaceLeft:(CLVisit *)visit
+{
+    CLLocation *visitedLocation = [[CLLocation alloc] initWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
+    
+    for (CLLocation *fratLocation in _arrayOfFratLocations)
+    {
+        CLLocationDistance distance = [visitedLocation distanceFromLocation:fratLocation];
+        if (distance < MINIMUM_METERS_AWAY)
+        {
+            //If person is within 10meters of the CENTER of the frat.. we'll consider them to be at that party
+            
+            //Decrement that frat's counter
+            
+            return;
+        }
+    }
+    
     
 }
 
 
+-(void)pushDataToParse
+{
+    
+}
 
 
 
