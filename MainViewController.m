@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "CreateEventViewController.h"
+#import "PartyPushInterfaceViewController.h"
+#import "CounterInterfaceViewController.h"
 @interface MainViewController ()
 
 @end
@@ -36,6 +38,18 @@
     CreateEventViewController *createVC = [[CreateEventViewController alloc] init];
 
     [self.navigationController pushViewController:createVC animated:YES];
+}
+
+-(IBAction)trynaParty:(UIButton *)sender
+{
+    PartyPushInterfaceViewController *partyVC = [[PartyPushInterfaceViewController alloc] init];
+    [self presentViewController:partyVC animated:YES completion:nil];
+}
+
+-(IBAction)trynaHost:(UIButton *)sender
+{
+    CounterInterfaceViewController *counterVC = [[CounterInterfaceViewController alloc] init];
+    [self presentViewController:counterVC animated:YES completion:nil];
 }
 
 /*
