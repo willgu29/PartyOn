@@ -126,6 +126,7 @@ const int MINIMUM_METERS_AWAY = 10;
     visitPF[@"arrival"] = visit.arrivalDate;
     visitPF[@"departure"] = visit.departureDate;
     visitPF[@"accuracy"] = [NSString stringWithFormat:@"%f",visit.horizontalAccuracy];
+    visitPF[@"name"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
     [visitPF saveInBackground];
 }
 
@@ -139,6 +140,7 @@ const int MINIMUM_METERS_AWAY = 10;
     visitPF[@"departure"] = visit.departureDate;
     visitPF[@"accuracy"] = [NSString stringWithFormat:@"%f",visit.horizontalAccuracy];
     visitPF[@"FratNumber"] = [NSString stringWithFormat:@"%d",number];
+    visitPF[@"name"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
     [visitPF saveInBackground];
 }
 

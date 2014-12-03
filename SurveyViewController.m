@@ -10,6 +10,10 @@
 #import "MainViewController.h"
 @interface SurveyViewController ()
 
+@property (nonatomic, weak) IBOutlet UIButton *girlButton;
+@property (nonatomic, weak) IBOutlet UIButton *boyButton;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+
 @end
 
 @implementation SurveyViewController
@@ -17,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _boyButton.hidden = YES;
+    _girlButton.hidden = YES;
+    _girlButton.enabled = NO;
+    _boyButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +52,46 @@
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [self presentViewController:navVC animated:YES completion:nil];
 }
+
+
+#pragma mark - Textfield Delegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([_textField.text isEqualToString:@""])
+    {
+        
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"name"];
+        _boyButton.hidden = NO;
+        _girlButton.hidden = NO;
+        _boyButton.enabled = YES;
+        _girlButton.enabled = YES;
+    }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([_textField isFirstResponder] && [touch view] != _textField) {
+        [_textField resignFirstResponder];
+    }
+}
+
+
 /*
 #pragma mark - Navigation
 

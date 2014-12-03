@@ -15,6 +15,7 @@
     BOOL isActivated;
 }
 
+
 @property (nonatomic, strong) LocationData *locationData;
 
 
