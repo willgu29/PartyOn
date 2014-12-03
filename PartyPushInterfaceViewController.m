@@ -48,12 +48,28 @@
 
     }
     delegate.locationManager.delegate = _locationData;
+    
+    [self configureLocationManager];
+    
     [delegate.locationManager startMonitoringVisits];
     
     
 //    [delegate.locationManager startUpdatingLocation]; use this to be precise as precise
     
     //TODO: support iOS 7
+}
+
+//CHANGE Location Manager PROPERTIES here
+-(void)configureLocationManager
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    //distance filter
+    delegate.locationManager.pausesLocationUpdatesAutomatically = NO;
+    delegate.locationManager.distanceFilter = kCLDistanceFilterNone;
+    delegate.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    
+    
 }
 
 -(void)stopMonitoringVisits
@@ -83,6 +99,10 @@
     }
 }
 
+-(IBAction)backButton:(UIButton *)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 
