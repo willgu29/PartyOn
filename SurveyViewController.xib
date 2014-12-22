@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9F8-4e-yur">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9F8-4e-yur">
                     <rect key="frame" x="127" y="380" width="66" height="30"/>
                     <state key="normal" title="I'm a Guy">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,7 +26,7 @@
                         <action selector="guyButton:" destination="-1" eventType="touchUpInside" id="HWC-Uk-dbv"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My Name is...." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5K2-uW-hE9">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My Name is...." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5K2-uW-hE9">
                     <rect key="frame" x="41" y="158" width="239" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -34,7 +34,7 @@
                         <outlet property="delegate" destination="-1" id="Gy1-nL-ENN"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-1b-LvA">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-1b-LvA">
                     <rect key="frame" x="129" y="487" width="62" height="30"/>
                     <state key="normal" title="I'm a Girl">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,6 +45,15 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5K2-uW-hE9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="158" id="1IZ-uF-MoW"/>
+                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="5K2-uW-hE9" secondAttribute="centerX" id="8FK-gj-dkP"/>
+                <constraint firstAttribute="bottom" secondItem="ZWb-1b-LvA" secondAttribute="bottom" constant="51" id="EX0-J4-JNd"/>
+                <constraint firstItem="5K2-uW-hE9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="ObA-Q4-coV"/>
+                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZFa-gJ-1Yd"/>
+                <constraint firstItem="ZWb-1b-LvA" firstAttribute="top" secondItem="9F8-4e-yur" secondAttribute="bottom" constant="77" id="eXh-vJ-qRh"/>
+                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="ZWb-1b-LvA" secondAttribute="centerX" id="sqS-AO-HqD"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

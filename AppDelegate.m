@@ -33,8 +33,10 @@
     if (self.genderType)
     {
         //IMPLIES Location/Push/Gender have been accepted/denied and chosen
+        
         MainViewController *mainVC = [[MainViewController alloc] init];
-        self.window.rootViewController = mainVC;
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
+        self.window.rootViewController = navVC;
     }
     else
     {

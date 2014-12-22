@@ -35,7 +35,16 @@
 
         }
         delegate.locationManager.delegate = self;
-        [delegate.locationManager requestAlwaysAuthorization];
+        if ([delegate.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
+        {
+            [delegate.locationManager requestAlwaysAuthorization];
+            
+        }
+        else
+        {
+            //iOS 7 support .. segue to surveyVC
+        }
+  
     }
     else
     {

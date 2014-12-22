@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
@@ -14,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1L-U7-f0S">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1L-U7-f0S">
                     <rect key="frame" x="202" y="27" width="110" height="30"/>
                     <state key="normal" title="Create an Event">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -23,19 +24,13 @@
                         <action selector="createEvent:" destination="-1" eventType="touchUpInside" id="had-zy-Wtm"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3l-gS-L7F">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3l-gS-L7F">
                     <rect key="frame" x="8" y="27" width="94" height="30"/>
                     <state key="normal" title="Find an Event">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57R-w4-Wo3">
-                    <rect key="frame" x="89" y="421" width="142" height="30"/>
-                    <state key="normal" title="1st time login survey">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-IU-4sj">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-IU-4sj">
                     <rect key="frame" x="75" y="205" width="170" height="30"/>
                     <state key="normal" title="I'm tryna HAVE A PARTY">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,7 +39,7 @@
                         <action selector="trynaHost:" destination="-1" eventType="touchUpInside" id="eZa-FV-fbU"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-sS-3ie">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-sS-3ie">
                     <rect key="frame" x="104" y="139" width="112" height="30"/>
                     <state key="normal" title="I'm tryna PARTY">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,6 +50,16 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h1L-U7-f0S" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="7NQ-5F-zrI"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="top" secondItem="Z8f-sS-3ie" secondAttribute="bottom" constant="36" id="V2n-tp-FJw"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="centerX" secondItem="Z8f-sS-3ie" secondAttribute="centerX" id="ZAj-cw-3mE"/>
+                <constraint firstItem="Z8f-sS-3ie" firstAttribute="top" secondItem="h1L-U7-f0S" secondAttribute="bottom" constant="82" id="ZCS-w2-taW"/>
+                <constraint firstItem="h1L-U7-f0S" firstAttribute="baseline" secondItem="h3l-gS-L7F" secondAttribute="baseline" id="fds-is-Whf"/>
+                <constraint firstItem="h3l-gS-L7F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="lP6-PN-9T6"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="otH-8a-Mbn"/>
+                <constraint firstItem="h3l-gS-L7F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="zdb-ce-g4A"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PartyPushInterfaceViewController">
@@ -14,14 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIN-Pq-tMe">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIN-Pq-tMe">
                     <rect key="frame" x="8" y="59" width="304" height="168"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="168" id="srn-bS-DQZ"/>
+                    </constraints>
                     <string key="text">Ready to Party? Just click the button to  start tracking. Party on will notify you of popular parties around you.                         PARTY ON!</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7i-rc-Yl3">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7i-rc-Yl3">
                     <rect key="frame" x="89" y="454" width="143" height="30"/>
                     <state key="normal" title="Activate">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,7 +34,7 @@
                         <action selector="activateDeactive:" destination="-1" eventType="touchUpInside" id="Q54-LS-5XT"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8e-L0-us3">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8e-L0-us3">
                     <rect key="frame" x="8" y="8" width="35" height="30"/>
                     <state key="normal" title="Back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,6 +45,15 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="C8e-L0-us3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="8ay-6W-hMr"/>
+                <constraint firstItem="C8e-L0-us3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="GyH-VZ-JRU"/>
+                <constraint firstItem="g7i-rc-Yl3" firstAttribute="centerX" secondItem="bIN-Pq-tMe" secondAttribute="centerX" id="R9V-SC-5jd"/>
+                <constraint firstItem="g7i-rc-Yl3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="e0k-6B-ESK"/>
+                <constraint firstAttribute="bottom" secondItem="g7i-rc-Yl3" secondAttribute="bottom" constant="84" id="g7m-gB-4rT"/>
+                <constraint firstItem="bIN-Pq-tMe" firstAttribute="leading" secondItem="C8e-L0-us3" secondAttribute="leading" id="tk1-gl-BMo"/>
+                <constraint firstItem="bIN-Pq-tMe" firstAttribute="top" secondItem="C8e-L0-us3" secondAttribute="bottom" constant="21" id="yuR-1p-45M"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateEventViewController">
@@ -14,35 +15,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9RN-OK-jF8">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9RN-OK-jF8">
                     <rect key="frame" x="112" y="95" width="97" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="97" id="nDL-gb-S75"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra Details" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="le1-C7-btw">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra Details" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="le1-C7-btw">
                     <rect key="frame" x="112" y="313" width="97" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2j6-S5-OvQ">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2j6-S5-OvQ">
                     <rect key="frame" x="0.0" y="133" width="320" height="162"/>
                     <date key="date" timeIntervalSinceReferenceDate="437436794.191576">
                         <!--2014-11-11 22:13:14 +0000-->
                     </date>
                 </datePicker>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AE-oq-glY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AE-oq-glY">
                     <rect key="frame" x="18" y="370" width="124" height="30"/>
                     <state key="normal" title="Choose a location">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCo-Hi-qPZ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCo-Hi-qPZ">
                     <rect key="frame" x="186" y="374" width="126" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URe-h6-eRe">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URe-h6-eRe">
                     <rect key="frame" x="270" y="524" width="32" height="30"/>
                     <state key="normal" title="Next">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,6 +57,21 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9RN-OK-jF8" firstAttribute="trailing" secondItem="le1-C7-btw" secondAttribute="trailing" id="52q-WM-dW3"/>
+                <constraint firstAttribute="trailing" secondItem="URe-h6-eRe" secondAttribute="trailing" constant="18" id="97s-Bz-Z07"/>
+                <constraint firstItem="9RN-OK-jF8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="95" id="9HX-Vv-9UM"/>
+                <constraint firstItem="8AE-oq-glY" firstAttribute="baseline" secondItem="VCo-Hi-qPZ" secondAttribute="baseline" id="9ZI-Vi-FNg"/>
+                <constraint firstItem="2j6-S5-OvQ" firstAttribute="top" secondItem="9RN-OK-jF8" secondAttribute="bottom" constant="8" symbolic="YES" id="EjX-W9-3Td"/>
+                <constraint firstItem="9RN-OK-jF8" firstAttribute="centerX" secondItem="2j6-S5-OvQ" secondAttribute="centerX" id="FB1-5P-XsN"/>
+                <constraint firstItem="8AE-oq-glY" firstAttribute="top" secondItem="le1-C7-btw" secondAttribute="bottom" constant="27" id="Gzy-rh-ikj"/>
+                <constraint firstItem="le1-C7-btw" firstAttribute="top" secondItem="2j6-S5-OvQ" secondAttribute="bottom" constant="18" id="KUO-lv-olm"/>
+                <constraint firstItem="VCo-Hi-qPZ" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="PN9-44-JHs"/>
+                <constraint firstItem="2j6-S5-OvQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XTf-DR-E7Z"/>
+                <constraint firstAttribute="bottom" secondItem="URe-h6-eRe" secondAttribute="bottom" constant="14" id="YAo-lO-tZO"/>
+                <constraint firstItem="9RN-OK-jF8" firstAttribute="leading" secondItem="le1-C7-btw" secondAttribute="leading" id="aGa-dj-dnw"/>
+                <constraint firstItem="VCo-Hi-qPZ" firstAttribute="leading" secondItem="8AE-oq-glY" secondAttribute="trailing" constant="44" id="nOc-4n-xQa"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
