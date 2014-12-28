@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -30,37 +30,54 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-IU-4sj">
-                    <rect key="frame" x="75" y="205" width="170" height="30"/>
-                    <state key="normal" title="I'm tryna HAVE A PARTY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-IU-4sj">
+                    <rect key="frame" x="24" y="409" width="272" height="62"/>
+                    <state key="normal" title="THROW A PARTY" backgroundImage="WhiteRectangle">
+                        <color key="titleColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="trynaHost:" destination="-1" eventType="touchUpInside" id="eZa-FV-fbU"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-sS-3ie">
-                    <rect key="frame" x="104" y="139" width="112" height="30"/>
-                    <state key="normal" title="I'm tryna PARTY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-sS-3ie">
+                    <rect key="frame" x="24" y="321" width="272" height="62"/>
+                    <state key="normal" title="PARTY" backgroundImage="WhiteRectangle">
+                        <color key="titleColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="trynaParty:" destination="-1" eventType="touchUpInside" id="zxf-L2-Oqe"/>
                     </connections>
                 </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Tonight_I_want_to" translatesAutoresizingMaskIntoConstraints="NO" id="0QU-oR-uAo">
+                    <rect key="frame" x="63" y="272" width="195" height="24"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-Wh-6iK">
+                    <rect key="frame" x="107" y="118" width="107" height="146"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="h1L-U7-f0S" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="7NQ-5F-zrI"/>
-                <constraint firstItem="cXe-IU-4sj" firstAttribute="top" secondItem="Z8f-sS-3ie" secondAttribute="bottom" constant="36" id="V2n-tp-FJw"/>
-                <constraint firstItem="cXe-IU-4sj" firstAttribute="centerX" secondItem="Z8f-sS-3ie" secondAttribute="centerX" id="ZAj-cw-3mE"/>
-                <constraint firstItem="Z8f-sS-3ie" firstAttribute="top" secondItem="h1L-U7-f0S" secondAttribute="bottom" constant="82" id="ZCS-w2-taW"/>
-                <constraint firstItem="h1L-U7-f0S" firstAttribute="baseline" secondItem="h3l-gS-L7F" secondAttribute="baseline" id="fds-is-Whf"/>
-                <constraint firstItem="h3l-gS-L7F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="lP6-PN-9T6"/>
-                <constraint firstItem="cXe-IU-4sj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="otH-8a-Mbn"/>
-                <constraint firstItem="h3l-gS-L7F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="zdb-ce-g4A"/>
+                <constraint firstItem="0QU-oR-uAo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6tP-rt-4Lm"/>
+                <constraint firstItem="0QU-oR-uAo" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="CRI-co-seM"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="leading" secondItem="Z8f-sS-3ie" secondAttribute="leading" id="GFQ-7O-WDR"/>
+                <constraint firstItem="Z8f-sS-3ie" firstAttribute="centerX" secondItem="0QU-oR-uAo" secondAttribute="centerX" id="LrH-ww-Rhx"/>
+                <constraint firstItem="h1L-U7-f0S" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="RW0-2g-S70"/>
+                <constraint firstItem="lhi-Wh-6iK" firstAttribute="centerX" secondItem="0QU-oR-uAo" secondAttribute="centerX" id="bz0-2A-f2k"/>
+                <constraint firstItem="h3l-gS-L7F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="nrn-0E-FF4"/>
+                <constraint firstItem="0QU-oR-uAo" firstAttribute="top" secondItem="lhi-Wh-6iK" secondAttribute="bottom" constant="8" symbolic="YES" id="r1T-nG-u33"/>
+                <constraint firstItem="lhi-Wh-6iK" firstAttribute="top" secondItem="h1L-U7-f0S" secondAttribute="bottom" constant="61" id="sNo-QK-RVX"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="top" secondItem="Z8f-sS-3ie" secondAttribute="bottom" constant="26" id="tTI-UJ-NI7"/>
+                <constraint firstItem="Z8f-sS-3ie" firstAttribute="top" secondItem="0QU-oR-uAo" secondAttribute="bottom" constant="25" id="uEG-YK-dqQ"/>
+                <constraint firstItem="h3l-gS-L7F" firstAttribute="baseline" secondItem="h1L-U7-f0S" secondAttribute="baseline" id="ylU-rx-hEp"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="Logo" width="107" height="146"/>
+        <image name="Tonight_I_want_to" width="195" height="24"/>
+        <image name="WhiteRectangle" width="272" height="62"/>
+    </resources>
 </document>

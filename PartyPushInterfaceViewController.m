@@ -10,6 +10,10 @@
 #import <MapKit/MapKit.h>
 #import "AppDelegate.h"
 #import "LocationData.h"
+
+//CLLocationManager will update locations only after this constant of meters has changed.
+const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
+
 @interface PartyPushInterfaceViewController ()
 {
     BOOL isActivated;
@@ -52,12 +56,10 @@
     
     [self configureLocationManager];
     
-    [delegate.locationManager startMonitoringVisits];
+//    [delegate.locationManager startMonitoringVisits]; //Visits Data is buggy
     
     
-//    [delegate.locationManager startUpdatingLocation]; use this to be precise as precise
-    
-    //TODO: support iOS 7
+    [delegate.locationManager startUpdatingLocation];
 }
 
 //CHANGE Location Manager PROPERTIES here
@@ -65,8 +67,8 @@
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     //distance filter
-    delegate.locationManager.pausesLocationUpdatesAutomatically = NO;
-    delegate.locationManager.distanceFilter = kCLDistanceFilterNone;
+    delegate.locationManager.pausesLocationUpdatesAutomatically = YES;
+    delegate.locationManager.distanceFilter = LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS;
     delegate.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     
@@ -76,9 +78,9 @@
 -(void)stopMonitoringVisits
 {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate.locationManager stopMonitoringVisits];
-    
 //    [delegate.locationManager stopMonitoringVisits];
+    
+    [delegate.locationManager stopUpdatingLocation];
 }
 
 -(IBAction)activateDeactive:(UIButton *)sender

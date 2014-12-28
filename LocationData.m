@@ -8,16 +8,17 @@
 
 #import "LocationData.h"
 #import <Parse/Parse.h>
+#import "FratEnums.h"
 @interface LocationData()
 
 @property (nonatomic, strong) NSArray *arrayOfFratLocations;
+@property (nonatomic) int fratStatus;
 
 @end
 
 const int MINIMUM_METERS_AWAY = 10;
 
 @implementation LocationData
-
 
 -(instancetype)init
 {
@@ -91,6 +92,80 @@ const int MINIMUM_METERS_AWAY = 10;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     NSLog(@"Location updated");
+    CLLocation *currentLocation = [locations lastObject];
+    [self saveLastLocationData:currentLocation];
+    
+    
+}
+
+-(void)saveLastLocationData:(CLLocation *)visit
+{
+    PFObject *visitPF = [PFObject objectWithClassName:@"LocationData"];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
+    visitPF[@"coordinate"] = point;
+    visitPF[@"time"] = visit.timestamp;
+    visitPF[@"verticalAccuracy"] = [NSString stringWithFormat:@"%f",visit.verticalAccuracy];
+    visitPF[@"accuracy"] = [NSString stringWithFormat:@"%f",visit.horizontalAccuracy];
+    visitPF[@"name"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
+    visitPF[@"speed"] = [NSString stringWithFormat:@"%f",visit.speed];
+    visitPF[@"course"] = [NSString stringWithFormat:@"%f", visit.course];
+    [visitPF saveInBackground];
+}
+
+
+-(void)saveLastFratLocationData:(CLLocation *)visit andFratNumber:(int)number
+{
+    PFObject *visitPF = [PFObject objectWithClassName:@"LocationData"];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
+    visitPF[@"FratNumber"] = [NSString stringWithFormat:@"%d",number];
+    visitPF[@"coordinate"] = point;
+    visitPF[@"time"] = visit.timestamp;
+    visitPF[@"verticalAccuracy"] = [NSString stringWithFormat:@"%f",visit.verticalAccuracy];
+    visitPF[@"accuracy"] = [NSString stringWithFormat:@"%f",visit.horizontalAccuracy];
+    visitPF[@"name"] = [[NSUserDefaults standardUserDefaults] stringForKey:@"name"];
+    visitPF[@"speed"] = [NSString stringWithFormat:@"%f",visit.speed];
+    visitPF[@"course"] = [NSString stringWithFormat:@"%f", visit.course];
+    [visitPF saveInBackground];
+}
+
+-(void)checkCurrentLocation:(CLLocation *)visit
+{
+    
+    CLLocation *visitedLocation = [[CLLocation alloc] initWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
+    
+    int fratNum = 0;
+    
+    for (CLLocation *fratLocation in _arrayOfFratLocations)
+    {
+        CLLocationDistance distance = [visitedLocation distanceFromLocation:fratLocation];
+        if (distance < MINIMUM_METERS_AWAY)
+        {
+            //If person is within 10meters of the CENTER of the frat.. we'll consider them to be at that party
+            [self saveLastFratLocationData:visit andFratNumber:fratNum];
+            _fratStatus = fratNum;
+            //TODO: ping server this data...
+            [self saveFratStatus];
+            return;
+        }
+        fratNum++;
+    }
+    
+    //IF method has reached this point, it means this location is not at any registered frat.
+    _fratStatus = NONE;
+    [self saveFratStatus];
+    //then ping server this data
+    
+}
+
+-(void)saveFratStatus
+{
+    PFObject *visitPF = [PFObject objectWithClassName:@"FratStatus"];
+    //GIRL = 1 | BOY = 2 | NOT SET = 0
+    int genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
+    
+    visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",_fratStatus];
+    visitPF[@"gender"] = [NSString stringWithFormat:@"%d", genderType];
+    [visitPF saveInBackground];
 }
 
 -(void)locationManagerDidResumeLocationUpdates:(CLLocationManager *)manager
@@ -103,20 +178,42 @@ const int MINIMUM_METERS_AWAY = 10;
     NSLog(@"Paused Updates");
 }
 
-//CLVisit has coordinate
--(void)locationManager:(CLLocationManager *)manager didVisit:(CLVisit *)visit
+
+
+
+
+//CLRegion is a defined area to monitor we give to CLLocationManager
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
-    NSLog(@"New Visit!");
-    [self saveVisitData:visit];
     
-    if ([visit.departureDate isEqualToDate:[NSDate distantFuture]]){
-        // User has arrived, but not left, the location
-        
-    } else {
-        // The visit is complete
-        [self checkPlaceLeft:visit];
-    }
 }
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
+{
+    
+}
+
+//***************************************************************
+#pragma mark - DEPRECATED CLVISIT INACCURACY
+//NOT USING CLVisit Anymore due to inaccuracy of tracking
+//-(void)locationManager:(CLLocationManager *)manager didVisit:(CLVisit *)visit
+//{
+//    NSLog(@"New Visit!");
+//    [self saveVisitData:visit];
+//
+//    if ([visit.departureDate isEqualToDate:[NSDate distantFuture]]){
+//        // User has arrived, but not left, the location
+//
+//    } else {
+//        // The visit is complete
+//        [self checkPlaceLeft:visit];
+//    }
+//}
 
 -(void)saveVisitData:(CLVisit *)visit
 {
@@ -150,7 +247,7 @@ const int MINIMUM_METERS_AWAY = 10;
     CLLocation *visitedLocation = [[CLLocation alloc] initWithLatitude:visit.coordinate.latitude longitude:visit.coordinate.longitude];
     
     int fratNum = 0;
-
+    
     for (CLLocation *fratLocation in _arrayOfFratLocations)
     {
         CLLocationDistance distance = [visitedLocation distanceFromLocation:fratLocation];
@@ -165,26 +262,7 @@ const int MINIMUM_METERS_AWAY = 10;
         fratNum++;
     }
     
-    
 }
-
-
-//CLRegion is a defined area to monitor we give to CLLocationManager
--(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
-    
-}
-
--(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    
-}
-
--(void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
-{
-    
-}
-
 
 
 @end
