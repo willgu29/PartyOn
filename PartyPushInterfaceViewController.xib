@@ -4,6 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="azo.otf">
+            <string>AzoSansUber-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PartyPushInterfaceViewController">
             <connections>
@@ -17,6 +22,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7i-rc-Yl3">
                     <rect key="frame" x="24" y="287" width="272" height="62"/>
+                    <fontDescription key="fontDescription" name="AzoSansUber-Regular" family="Azo Sans Uber" pointSize="30"/>
                     <state key="normal" title="Activate" backgroundImage="WhiteRectangle">
                         <color key="titleColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

@@ -3,6 +3,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="azo.otf">
+            <string>AzoSansUber-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AcceptLocationTrackingViewController">
             <connections>
@@ -16,7 +21,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyF-Ae-bPx">
                     <rect key="frame" x="24" y="498" width="272" height="62"/>
-                    <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="AzoSansUber-Regular" family="Azo Sans Uber" pointSize="30"/>
                     <state key="normal" title="ALLOW" backgroundImage="WhiteRectangle">
                         <color key="titleColor" red="1" green="0.19607844948768616" blue="0.28627452254295349" alpha="1" colorSpace="deviceRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

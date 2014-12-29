@@ -70,6 +70,9 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
+    
+    NSLog(@"Device token: %@", deviceToken);
+    [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceToken"];
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

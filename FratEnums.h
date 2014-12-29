@@ -11,7 +11,8 @@
 
 
 
-enum {
+enum fratType {
+    DEACTIVATED = -1,
     NONE = 0,
     AEP = 1,
     AGW = 2,

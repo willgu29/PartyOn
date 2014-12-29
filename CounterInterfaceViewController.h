@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FetchData.h"
 
-@interface CounterInterfaceViewController : UIViewController
+@interface CounterInterfaceViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, FetchDataDelegate>
 
 @end

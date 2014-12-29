@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CounterInterfaceViewController">
             <connections>
+                <outlet property="numberOfGirls" destination="tvp-UV-eeJ" id="rJD-Hs-gul"/>
+                <outlet property="numberOfGuys" destination="Cfu-Ds-Rdn" id="3Gi-Vi-O9g"/>
+                <outlet property="totalNumberOfPeople" destination="ahm-yg-cpm" id="dff-Vh-HKv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,24 +42,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Number of People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jf-mO-LhJ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Number of People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jf-mO-LhJ">
                     <rect key="frame" x="70" y="206" width="181" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Currently Selected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-hI-7lh">
-                    <rect key="frame" x="54" y="385" width="213" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRq-NS-EKQ">
-                    <rect key="frame" x="103" y="269" width="114" height="30"/>
-                    <state key="normal" title="Choose Address">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3n-l4-KhP">
                     <rect key="frame" x="8" y="18" width="35" height="30"/>
                     <state key="normal" title="Back">
@@ -66,23 +57,39 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="HeZ-TD-iqX"/>
                     </connections>
                 </button>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieT-U5-hPI">
+                    <rect key="frame" x="0.0" y="325" width="320" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="vCc-KT-j61"/>
+                        <outlet property="delegate" destination="-1" id="cLS-TG-YjU"/>
+                    </connections>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-Ol-fCf">
+                    <rect key="frame" x="114" y="501" width="93" height="30"/>
+                    <state key="normal" title="Start Counter">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startCounterButton:" destination="-1" eventType="touchUpInside" id="tIK-ap-A44"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahm-yg-cpm">
+                    <rect key="frame" x="70" y="242" width="181" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Cfu-Ds-Rdn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="0Wl-vL-39w"/>
                 <constraint firstItem="Cfu-Ds-Rdn" firstAttribute="centerX" secondItem="syV-3e-Wgc" secondAttribute="centerX" id="2LC-mf-Hkk"/>
-                <constraint firstItem="Vdf-hI-7lh" firstAttribute="centerX" secondItem="yRq-NS-EKQ" secondAttribute="centerX" id="3So-vY-jxw"/>
                 <constraint firstItem="uFK-YJ-NOp" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="4AU-9H-ZaG"/>
-                <constraint firstItem="yRq-NS-EKQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="8hX-lb-64B"/>
                 <constraint firstItem="tvp-UV-eeJ" firstAttribute="baseline" secondItem="Cfu-Ds-Rdn" secondAttribute="baseline" id="BMk-c7-5fS"/>
                 <constraint firstItem="Cfu-Ds-Rdn" firstAttribute="top" secondItem="syV-3e-Wgc" secondAttribute="bottom" constant="26" id="DdE-ex-xfT"/>
                 <constraint firstAttribute="trailing" secondItem="tvp-UV-eeJ" secondAttribute="trailing" constant="2" id="Z8U-mZ-mDj"/>
                 <constraint firstItem="N3n-l4-KhP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="c9y-8q-XkR"/>
-                <constraint firstItem="3jf-mO-LhJ" firstAttribute="centerX" secondItem="yRq-NS-EKQ" secondAttribute="centerX" id="cPP-1Z-eQh"/>
-                <constraint firstItem="Vdf-hI-7lh" firstAttribute="top" secondItem="yRq-NS-EKQ" secondAttribute="bottom" constant="86" id="cqS-1n-dn0"/>
-                <constraint firstItem="yRq-NS-EKQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fjE-XE-esy"/>
                 <constraint firstItem="N3n-l4-KhP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="inm-ly-RMs"/>
-                <constraint firstItem="yRq-NS-EKQ" firstAttribute="top" secondItem="3jf-mO-LhJ" secondAttribute="bottom" constant="42" id="jJE-bh-GiR"/>
                 <constraint firstItem="N3n-l4-KhP" firstAttribute="leading" secondItem="syV-3e-Wgc" secondAttribute="leading" id="lcE-bs-3xd"/>
                 <constraint firstItem="uFK-YJ-NOp" firstAttribute="baseline" secondItem="syV-3e-Wgc" secondAttribute="baseline" id="qe6-PI-jpq"/>
                 <constraint firstItem="syV-3e-Wgc" firstAttribute="top" secondItem="N3n-l4-KhP" secondAttribute="bottom" constant="44" id="sVb-ip-V0y"/>

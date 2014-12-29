@@ -26,6 +26,7 @@ const int MINIMUM_METERS_AWAY = 10;
     if (self)
     {
         [self initFratLocations];
+        [self saveFratStatusWithStatus:NONE];
     }
     return self;
 }
@@ -94,7 +95,7 @@ const int MINIMUM_METERS_AWAY = 10;
     NSLog(@"Location updated");
     CLLocation *currentLocation = [locations lastObject];
     [self saveLastLocationData:currentLocation];
-    
+    [self checkCurrentLocation:currentLocation];
     
 }
 
@@ -144,7 +145,7 @@ const int MINIMUM_METERS_AWAY = 10;
             [self saveLastFratLocationData:visit andFratNumber:fratNum];
             _fratStatus = fratNum;
             //TODO: ping server this data...
-            [self saveFratStatus];
+            [self saveFratStatusWithStatus:_fratStatus];
             return;
         }
         fratNum++;
@@ -152,20 +153,30 @@ const int MINIMUM_METERS_AWAY = 10;
     
     //IF method has reached this point, it means this location is not at any registered frat.
     _fratStatus = NONE;
-    [self saveFratStatus];
+    [self saveFratStatusWithStatus:_fratStatus];
     //then ping server this data
     
 }
 
--(void)saveFratStatus
+//When reaching this point, an object FratStatus w/ device token will have already been made. Therefore, just update the object
+-(void)saveFratStatusWithStatus:(int)status
 {
-    PFObject *visitPF = [PFObject objectWithClassName:@"FratStatus"];
-    //GIRL = 1 | BOY = 2 | NOT SET = 0
-    int genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
-    
-    visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",_fratStatus];
-    visitPF[@"gender"] = [NSString stringWithFormat:@"%d", genderType];
+    PFQuery *query = [PFQuery queryWithClassName:@"FratStatus"];
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    [query whereKey:@"deviceToken" equalTo:data];
+    PFObject *visitPF = [query getFirstObject];
+    visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",status];
     [visitPF saveInBackground];
+
+    
+    //No longer need to add these datas, already added on initial setup.
+//    int genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
+//    
+//    visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",_fratStatus];
+//    visitPF[@"gender"] = [NSString stringWithFormat:@"%d", genderType];
+//    visitPF[@"deviceToken"] = data;
+    
+
 }
 
 -(void)locationManagerDidResumeLocationUpdates:(CLLocationManager *)manager
@@ -179,8 +190,12 @@ const int MINIMUM_METERS_AWAY = 10;
 }
 
 
-
-
+-(void)locationManager:(CLLocationManager *)manager didFinishDeferredUpdatesWithError:(NSError *)error
+{
+    //The location manager object calls this method to let you know that it has stopped deferring the delivery of location events. The manager may call this method for any number of reasons. For example, it calls it when you stop location updates altogether, when you ask the location manager to disallow deferred updates, or when a condition for deferring updates (such as exceeding a timeout or distance parameter) is met.
+    
+    [self saveFratStatusWithStatus:DEACTIVATED];
+}
 
 //CLRegion is a defined area to monitor we give to CLLocationManager
 -(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region

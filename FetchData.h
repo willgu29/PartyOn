@@ -9,11 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
+
+@class FetchData;
+@protocol FetchDataDelegate
+
+-(void)parseCompletionWithDataGuys:(int)numberOfGuys girls:(int)numberOfGirls andTotal:(int)numberOfPeople;
+
+@end
+
 @interface FetchData : NSObject
 
+@property (nonatomic, assign) id delegate;
 
--(NSInteger)getGirlsAt:(NSString *)location;
--(NSInteger)getGuysAt:(NSString *)location;
-
+-(instancetype)init;
+-(void)setFratNumber:(int)fratNumber;
 
 @end

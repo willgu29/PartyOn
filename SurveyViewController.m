@@ -8,6 +8,7 @@
 
 #import "SurveyViewController.h"
 #import "MainViewController.h"
+#import <Parse/Parse.h>
 @interface SurveyViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *girlButton;
@@ -50,7 +51,22 @@
 {
     MainViewController *mainVC = [[MainViewController alloc] init];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    [self presentViewController:navVC animated:YES completion:nil];
+    [self presentViewController:navVC animated:YES completion:^{
+        [self addDataToParse];
+    }];
+}
+
+-(void)addDataToParse
+{
+    PFObject *visitPF = [PFObject objectWithClassName:@"FratStatus"];
+    //GIRL = 1 | BOY = 2 | NOT SET = 0
+    int genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    
+    visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",-1];
+    visitPF[@"gender"] = [NSString stringWithFormat:@"%d", genderType];
+    visitPF[@"deviceToken"] = data;
+    [visitPF saveInBackground];
 }
 
 
