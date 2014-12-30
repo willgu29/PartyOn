@@ -34,6 +34,10 @@ const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
     
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -103,11 +107,14 @@ const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
     }
 }
 
+//If user goes back, stop locational updates
 -(IBAction)backButton:(UIButton *)sender
 {
+    [self stopMonitoringVisits];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+//If user goes to map, locational updates should continue
 -(IBAction)mapViewButton:(UIButton *)sender
 {
     MapViewController *mapVC = [[MapViewController alloc] init];

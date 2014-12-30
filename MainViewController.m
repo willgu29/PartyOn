@@ -20,6 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = YES;
