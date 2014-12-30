@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController">
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-va-e9e">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-va-e9e">
                     <rect key="frame" x="8" y="8" width="35" height="30"/>
                     <state key="normal" title="Back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -24,24 +25,56 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="SkY-9y-AC8"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xND-wp-vB8">
-                    <rect key="frame" x="8" y="61" width="304" height="146"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-Bv-anw">
+                    <rect key="frame" x="131" y="132" width="59" height="30"/>
+                    <state key="normal" title="Clickedy">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-hb-kE7">
+                    <rect key="frame" x="8" y="170" width="304" height="390"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="390" id="7AZ-ez-3hB"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="dxc-7g-gGd"/>
+                    </connections>
+                </mapView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xND-wp-vB8">
+                    <rect key="frame" x="8" y="34" width="304" height="146"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="146" id="IQi-dr-K8f"/>
+                    </constraints>
                     <string key="text">The Party On team is currently working on providing a map-based display of available parties around UCLA campus. Have any suggestions? Ideas? Comments? GO HAM.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-Bv-anw">
-                    <rect key="frame" x="131" y="177" width="59" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt1-mh-Wvp">
+                    <rect key="frame" x="131" y="132" width="59" height="30"/>
                     <state key="normal" title="Clickedy">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="supportButton:" destination="-1" eventType="touchUpInside" id="25m-Wy-Pvd"/>
+                        <action selector="supportButton:" destination="-1" eventType="touchUpInside" id="dHJ-KX-fOA"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fbC-va-e9e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="0AW-IL-ShL"/>
+                <constraint firstItem="fbC-va-e9e" firstAttribute="leading" secondItem="xND-wp-vB8" secondAttribute="leading" id="C1U-iY-tlH"/>
+                <constraint firstItem="Wt1-mh-Wvp" firstAttribute="leading" secondItem="EY3-Bv-anw" secondAttribute="leading" id="EWU-70-tCO"/>
+                <constraint firstItem="xND-wp-vB8" firstAttribute="trailing" secondItem="3U0-hb-kE7" secondAttribute="trailing" id="EnE-r3-PqW"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="IhX-h3-SKj"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="VUY-67-ZX4"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="top" secondItem="EY3-Bv-anw" secondAttribute="bottom" constant="8" symbolic="YES" id="WVU-mC-aPf"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="jw0-GS-NDv"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="leading" secondItem="xND-wp-vB8" secondAttribute="leading" id="lQm-YK-g89"/>
+                <constraint firstItem="EY3-Bv-anw" firstAttribute="baseline" secondItem="Wt1-mh-Wvp" secondAttribute="baseline" id="mdr-I5-N3w"/>
+                <constraint firstItem="Wt1-mh-Wvp" firstAttribute="centerX" secondItem="xND-wp-vB8" secondAttribute="centerX" id="pWt-jp-QpS"/>
+                <constraint firstItem="xND-wp-vB8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="wAP-93-Lyc"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

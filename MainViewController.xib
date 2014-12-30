@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="azo.otf">
@@ -22,21 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1L-U7-f0S">
-                    <rect key="frame" x="202" y="27" width="110" height="30"/>
-                    <state key="normal" title="Create an Event">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="createEvent:" destination="-1" eventType="touchUpInside" id="had-zy-Wtm"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3l-gS-L7F">
-                    <rect key="frame" x="8" y="27" width="94" height="30"/>
-                    <state key="normal" title="Find an Event">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXe-IU-4sj">
                     <rect key="frame" x="24" y="409" width="272" height="62"/>
                     <fontDescription key="fontDescription" name="AzoSansUber-Regular" family="Azo Sans Uber" pointSize="24"/>
@@ -68,18 +52,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="0QU-oR-uAo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6tP-rt-4Lm"/>
-                <constraint firstItem="0QU-oR-uAo" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="CRI-co-seM"/>
-                <constraint firstItem="cXe-IU-4sj" firstAttribute="leading" secondItem="Z8f-sS-3ie" secondAttribute="leading" id="GFQ-7O-WDR"/>
-                <constraint firstItem="Z8f-sS-3ie" firstAttribute="centerX" secondItem="0QU-oR-uAo" secondAttribute="centerX" id="LrH-ww-Rhx"/>
-                <constraint firstItem="h1L-U7-f0S" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="RW0-2g-S70"/>
-                <constraint firstItem="lhi-Wh-6iK" firstAttribute="centerX" secondItem="0QU-oR-uAo" secondAttribute="centerX" id="bz0-2A-f2k"/>
-                <constraint firstItem="h3l-gS-L7F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="nrn-0E-FF4"/>
-                <constraint firstItem="0QU-oR-uAo" firstAttribute="top" secondItem="lhi-Wh-6iK" secondAttribute="bottom" constant="8" symbolic="YES" id="r1T-nG-u33"/>
-                <constraint firstItem="lhi-Wh-6iK" firstAttribute="top" secondItem="h1L-U7-f0S" secondAttribute="bottom" constant="61" id="sNo-QK-RVX"/>
-                <constraint firstItem="cXe-IU-4sj" firstAttribute="top" secondItem="Z8f-sS-3ie" secondAttribute="bottom" constant="26" id="tTI-UJ-NI7"/>
-                <constraint firstItem="Z8f-sS-3ie" firstAttribute="top" secondItem="0QU-oR-uAo" secondAttribute="bottom" constant="25" id="uEG-YK-dqQ"/>
-                <constraint firstItem="h3l-gS-L7F" firstAttribute="baseline" secondItem="h1L-U7-f0S" secondAttribute="baseline" id="ylU-rx-hEp"/>
+                <constraint firstItem="lhi-Wh-6iK" firstAttribute="centerX" secondItem="0QU-oR-uAo" secondAttribute="centerX" id="0XL-rx-xe8"/>
+                <constraint firstItem="0QU-oR-uAo" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Cwp-P7-Nie"/>
+                <constraint firstItem="0QU-oR-uAo" firstAttribute="top" secondItem="lhi-Wh-6iK" secondAttribute="bottom" constant="8" symbolic="YES" id="SCH-nd-w0P"/>
+                <constraint firstItem="Z8f-sS-3ie" firstAttribute="top" secondItem="0QU-oR-uAo" secondAttribute="bottom" constant="25" id="TqJ-qX-Rvm"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="leading" secondItem="Z8f-sS-3ie" secondAttribute="leading" id="WK7-Fb-eiX"/>
+                <constraint firstItem="cXe-IU-4sj" firstAttribute="top" secondItem="Z8f-sS-3ie" secondAttribute="bottom" constant="26" id="YU0-Yo-gJz"/>
+                <constraint firstItem="lhi-Wh-6iK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dcd-pc-SDx"/>
+                <constraint firstItem="Z8f-sS-3ie" firstAttribute="centerX" secondItem="0QU-oR-uAo" secondAttribute="centerX" id="mTA-7N-yEe"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

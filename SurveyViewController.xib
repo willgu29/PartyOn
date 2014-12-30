@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
@@ -46,13 +47,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="5K2-uW-hE9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="158" id="1IZ-uF-MoW"/>
-                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="5K2-uW-hE9" secondAttribute="centerX" id="8FK-gj-dkP"/>
-                <constraint firstAttribute="bottom" secondItem="ZWb-1b-LvA" secondAttribute="bottom" constant="51" id="EX0-J4-JNd"/>
-                <constraint firstItem="5K2-uW-hE9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="ObA-Q4-coV"/>
-                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZFa-gJ-1Yd"/>
-                <constraint firstItem="ZWb-1b-LvA" firstAttribute="top" secondItem="9F8-4e-yur" secondAttribute="bottom" constant="77" id="eXh-vJ-qRh"/>
-                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="ZWb-1b-LvA" secondAttribute="centerX" id="sqS-AO-HqD"/>
+                <constraint firstItem="5K2-uW-hE9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="158" id="1u4-Mi-F7D"/>
+                <constraint firstAttribute="bottom" secondItem="ZWb-1b-LvA" secondAttribute="bottom" constant="51" id="W5P-vA-Gho"/>
+                <constraint firstItem="ZWb-1b-LvA" firstAttribute="top" secondItem="9F8-4e-yur" secondAttribute="bottom" constant="77" id="lAb-QZ-f4f"/>
+                <constraint firstItem="ZWb-1b-LvA" firstAttribute="centerX" secondItem="9F8-4e-yur" secondAttribute="centerX" id="ndX-1L-ScY"/>
+                <constraint firstItem="5K2-uW-hE9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="pkJ-OL-okd"/>
+                <constraint firstItem="5K2-uW-hE9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sfq-oa-KtU"/>
+                <constraint firstItem="9F8-4e-yur" firstAttribute="centerX" secondItem="5K2-uW-hE9" secondAttribute="centerX" id="zQq-pS-aY6"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

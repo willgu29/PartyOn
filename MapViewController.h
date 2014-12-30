@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import <MapKit/MapKit.h>
 
-
-@interface MapViewController : UIViewController  <MFMailComposeViewControllerDelegate>
+@interface MapViewController : UIViewController  <MFMailComposeViewControllerDelegate, MKMapViewDelegate>
 
 @end
