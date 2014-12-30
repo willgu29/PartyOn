@@ -73,6 +73,7 @@
     
     NSLog(@"Device token: %@", deviceToken);
     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceToken"];
+    //NOTE: Conversion of NSData to NSString is done in parse save methods
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

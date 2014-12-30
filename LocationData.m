@@ -7,6 +7,7 @@
 //
 
 #import "LocationData.h"
+#import "NSDataConvert.h"
 #import <Parse/Parse.h>
 #import "FratEnums.h"
 @interface LocationData()
@@ -163,7 +164,8 @@ const int MINIMUM_METERS_AWAY = 10;
 {
     PFQuery *query = [PFQuery queryWithClassName:@"FratStatus"];
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
-    [query whereKey:@"deviceToken" equalTo:data];
+    NSString *hexString = [data hexadecimalString];
+    [query whereKey:@"deviceToken" equalTo:hexString];
     PFObject *visitPF = [query getFirstObject];
     visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",status];
     [visitPF saveInBackground];

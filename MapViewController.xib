@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-va-e9e">
-                    <rect key="frame" x="8" y="8" width="35" height="30"/>
+                    <rect key="frame" x="8" y="21" width="35" height="30"/>
                     <state key="normal" title="Back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -33,18 +33,15 @@
                 </button>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-hb-kE7">
                     <rect key="frame" x="8" y="170" width="304" height="390"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="390" id="7AZ-ez-3hB"/>
-                    </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="dxc-7g-gGd"/>
                     </connections>
                 </mapView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xND-wp-vB8">
-                    <rect key="frame" x="8" y="34" width="304" height="146"/>
+                    <rect key="frame" x="8" y="46" width="304" height="88"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="146" id="IQi-dr-K8f"/>
+                        <constraint firstAttribute="height" constant="88" id="HBE-Kv-uNy"/>
                     </constraints>
                     <string key="text">The Party On team is currently working on providing a map-based display of available parties around UCLA campus. Have any suggestions? Ideas? Comments? GO HAM.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -62,18 +59,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fbC-va-e9e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="0AW-IL-ShL"/>
-                <constraint firstItem="fbC-va-e9e" firstAttribute="leading" secondItem="xND-wp-vB8" secondAttribute="leading" id="C1U-iY-tlH"/>
-                <constraint firstItem="Wt1-mh-Wvp" firstAttribute="leading" secondItem="EY3-Bv-anw" secondAttribute="leading" id="EWU-70-tCO"/>
-                <constraint firstItem="xND-wp-vB8" firstAttribute="trailing" secondItem="3U0-hb-kE7" secondAttribute="trailing" id="EnE-r3-PqW"/>
-                <constraint firstItem="3U0-hb-kE7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="IhX-h3-SKj"/>
-                <constraint firstItem="3U0-hb-kE7" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="VUY-67-ZX4"/>
-                <constraint firstItem="3U0-hb-kE7" firstAttribute="top" secondItem="EY3-Bv-anw" secondAttribute="bottom" constant="8" symbolic="YES" id="WVU-mC-aPf"/>
-                <constraint firstItem="3U0-hb-kE7" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="jw0-GS-NDv"/>
-                <constraint firstItem="3U0-hb-kE7" firstAttribute="leading" secondItem="xND-wp-vB8" secondAttribute="leading" id="lQm-YK-g89"/>
-                <constraint firstItem="EY3-Bv-anw" firstAttribute="baseline" secondItem="Wt1-mh-Wvp" secondAttribute="baseline" id="mdr-I5-N3w"/>
-                <constraint firstItem="Wt1-mh-Wvp" firstAttribute="centerX" secondItem="xND-wp-vB8" secondAttribute="centerX" id="pWt-jp-QpS"/>
-                <constraint firstItem="xND-wp-vB8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="wAP-93-Lyc"/>
+                <constraint firstItem="xND-wp-vB8" firstAttribute="leading" secondItem="3U0-hb-kE7" secondAttribute="leading" id="4JH-Cx-kTY"/>
+                <constraint firstItem="Wt1-mh-Wvp" firstAttribute="baseline" secondItem="EY3-Bv-anw" secondAttribute="baseline" id="6lh-fL-l9i"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="LN9-ee-mxS"/>
+                <constraint firstItem="xND-wp-vB8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="Lov-1j-wax"/>
+                <constraint firstItem="fbC-va-e9e" firstAttribute="leading" secondItem="xND-wp-vB8" secondAttribute="leading" id="LxS-Sp-5R8"/>
+                <constraint firstItem="EY3-Bv-anw" firstAttribute="leading" secondItem="Wt1-mh-Wvp" secondAttribute="leading" id="RBg-2q-aDn"/>
+                <constraint firstItem="xND-wp-vB8" firstAttribute="centerX" secondItem="Wt1-mh-Wvp" secondAttribute="centerX" id="TWH-FH-sxb"/>
+                <constraint firstItem="xND-wp-vB8" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="ebd-Io-D6L"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="top" secondItem="xND-wp-vB8" secondAttribute="bottom" constant="36" id="grl-4i-RAh"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" id="pvb-ss-A86"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="top" secondItem="Wt1-mh-Wvp" secondAttribute="bottom" constant="8" symbolic="YES" id="sRU-RM-Wa3"/>
+                <constraint firstItem="fbC-va-e9e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="21" id="ttI-JQ-TGa"/>
+                <constraint firstItem="3U0-hb-kE7" firstAttribute="trailing" secondItem="xND-wp-vB8" secondAttribute="trailing" id="yIo-fd-bcN"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

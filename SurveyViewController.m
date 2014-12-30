@@ -9,6 +9,7 @@
 #import "SurveyViewController.h"
 #import "MainViewController.h"
 #import <Parse/Parse.h>
+#import "NSDataConvert.h"
 @interface SurveyViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *girlButton;
@@ -62,10 +63,10 @@
     //GIRL = 1 | BOY = 2 | NOT SET = 0
     int genderType = [[NSUserDefaults standardUserDefaults] integerForKey:@"genderType"];
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
-    
+    NSString *hexString = [data hexadecimalString];
     visitPF[@"fratName"] = [NSString stringWithFormat:@"%d",-1];
     visitPF[@"gender"] = [NSString stringWithFormat:@"%d", genderType];
-    visitPF[@"deviceToken"] = data;
+    visitPF[@"deviceToken"] = hexString;
     [visitPF saveInBackground];
 }
 

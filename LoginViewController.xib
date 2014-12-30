@@ -15,30 +15,70 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2F-cM-KQm">
-                    <rect key="frame" x="139" y="273" width="39" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhn-iA-9Uc">
                     <rect key="frame" x="87" y="423" width="147" height="30"/>
                     <state key="normal" title="Let's GET WRECKED">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="Cx9-FH-eVG"/>
                     </connections>
                 </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LogoFront" translatesAutoresizingMaskIntoConstraints="NO" id="nNh-rb-bZ7">
+                    <rect key="frame" x="56" y="29" width="208" height="288"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lX-aR-V2j">
+                    <rect key="frame" x="129" y="341" width="21" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="WhiteRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="kQy-h9-6Ji">
+                    <rect key="frame" x="48" y="241" width="224" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="vRD-2c-a7i"/>
+                    </constraints>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="WhiteRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="ZN2-FY-s18">
+                    <rect key="frame" x="105" y="283" width="110" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="ptt-IA-4HI"/>
+                        <constraint firstAttribute="width" constant="110" id="xnC-72-3aR"/>
+                    </constraints>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Party_On" translatesAutoresizingMaskIntoConstraints="NO" id="Inl-4c-6Dt">
+                    <rect key="frame" x="56" y="244" width="209" height="80"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="UCLA" translatesAutoresizingMaskIntoConstraints="NO" id="15o-xe-pQL">
+                    <rect key="frame" x="158" y="340" width="44" height="22"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="hhn-iA-9Uc" secondAttribute="bottom" constant="115" id="PUX-F3-VcM"/>
-                <constraint firstItem="N2F-cM-KQm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="273" id="Ukd-s3-TEK"/>
-                <constraint firstItem="N2F-cM-KQm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="139" id="eq4-nP-owE"/>
-                <constraint firstItem="hhn-iA-9Uc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kj0-Jx-M5s"/>
+                <constraint firstItem="Inl-4c-6Dt" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1Go-Vb-LV2"/>
+                <constraint firstItem="8lX-aR-V2j" firstAttribute="bottom" secondItem="15o-xe-pQL" secondAttribute="bottom" id="53D-RD-nfb"/>
+                <constraint firstItem="nNh-rb-bZ7" firstAttribute="leading" secondItem="Inl-4c-6Dt" secondAttribute="leading" id="8RG-ad-oqo"/>
+                <constraint firstItem="15o-xe-pQL" firstAttribute="top" secondItem="Inl-4c-6Dt" secondAttribute="bottom" constant="16" id="A56-cZ-boW"/>
+                <constraint firstItem="kQy-h9-6Ji" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="BDl-jR-Fhl"/>
+                <constraint firstItem="15o-xe-pQL" firstAttribute="leading" secondItem="8lX-aR-V2j" secondAttribute="trailing" constant="8" symbolic="YES" id="EHl-hx-A7l"/>
+                <constraint firstItem="ZN2-FY-s18" firstAttribute="top" secondItem="kQy-h9-6Ji" secondAttribute="bottom" id="Jbv-Ec-0vQ"/>
+                <constraint firstItem="Inl-4c-6Dt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LDJ-vD-flG"/>
+                <constraint firstItem="ZN2-FY-s18" firstAttribute="centerX" secondItem="hhn-iA-9Uc" secondAttribute="centerX" id="Xqw-TC-PuS"/>
+                <constraint firstItem="15o-xe-pQL" firstAttribute="top" secondItem="nNh-rb-bZ7" secondAttribute="bottom" constant="23" id="YtT-BV-I6a"/>
+                <constraint firstItem="hhn-iA-9Uc" firstAttribute="top" secondItem="8lX-aR-V2j" secondAttribute="bottom" constant="61" id="cHm-gW-jnQ"/>
+                <constraint firstItem="15o-xe-pQL" firstAttribute="top" secondItem="ZN2-FY-s18" secondAttribute="bottom" constant="15" id="lQ6-bu-uA8"/>
+                <constraint firstItem="kQy-h9-6Ji" firstAttribute="centerX" secondItem="Inl-4c-6Dt" secondAttribute="centerX" id="rBD-57-3zZ"/>
+                <constraint firstItem="Inl-4c-6Dt" firstAttribute="centerX" secondItem="ZN2-FY-s18" secondAttribute="centerX" id="rV1-4m-Fok"/>
+                <constraint firstItem="8lX-aR-V2j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="129" id="snL-oo-ICB"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="LogoFront" width="208" height="288"/>
+        <image name="Party_On" width="209" height="80"/>
+        <image name="UCLA" width="44" height="22"/>
+        <image name="WhiteRectangle" width="272" height="62"/>
+    </resources>
 </document>
