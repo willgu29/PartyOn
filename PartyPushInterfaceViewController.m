@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "AppDelegate.h"
 #import "LocationData.h"
+#import "MapViewController.h"
 
 //CLLocationManager will update locations only after this constant of meters has changed.
 const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
@@ -107,7 +108,11 @@ const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+-(IBAction)mapViewButton:(UIButton *)sender
+{
+    MapViewController *mapVC = [[MapViewController alloc] init];
+    [self presentViewController:mapVC animated:YES completion:nil];
+}
 
 
 /*
