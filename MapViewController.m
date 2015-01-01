@@ -90,6 +90,11 @@
     
 }
 
+-(void)noPartiesRightNow
+{
+    //Display some text or alert
+}
+
 #pragma mark - Support Buttons
 
 -(IBAction)supportButton:(UIButton *)sender

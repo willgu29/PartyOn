@@ -59,6 +59,14 @@
         NSLog(@"object: %@",objects);
         NSString *fratName = [objects valueForKey:@"fratName"];
         NSLog(@"Frat name: %@", fratName);
+        
+        //server sends NONE for deactivating party list parsing
+        if ([fratName isEqualToString:@"NONE"])
+        {
+            [self noParties];
+            return;
+        }
+        
         [_fratsPartyingNow addObject:fratName];
         NSString *locationID = [objects valueForKey:@"locationID"];
         CLLocation *fratLocation = [_arrayOfAllFratLocations objectAtIndex:(locationID.intValue - 1)];
@@ -69,6 +77,10 @@
 }
 
 
+-(void)noParties
+{
+    [delegate noPartiesRightNow];
+}
 
 #pragma mark - Temporary Hard code
 //IN the future the server will also send over coordinate points.

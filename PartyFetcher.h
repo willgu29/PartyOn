@@ -14,6 +14,7 @@
 @protocol PartyFetcherDelegate
 
 -(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying andLocations:(NSArray *)fratsPartyingLocations;
+-(void)noPartiesRightNow;
 
 @end
 
