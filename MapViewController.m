@@ -12,6 +12,7 @@
 @interface MapViewController ()
 
 @property (nonatomic, strong) PartyFetcher *partyFetcher;
+@property (nonatomic, weak) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -41,23 +42,51 @@
 
 #pragma mark - Adding Pin to Map
 
--(void)addPin
-{
-//    MKPointAnnotation *pinData = [[MKPointAnnotation alloc] init];
-    
-//    MKPinAnnotationView *pinAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:<#(id<MKAnnotation>)#> reuseIdentifier:(NSString *)]
-}
+
 
 #pragma mark - Map Kit Delegates
 
-
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    
+    static NSString *identifier = @"PinAnnotation";
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    
+    if (!annotationView)
+    {
+        
+        NSLog(@"making new MKPinAnnotationView");
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+    }
+    else
+    {
+        //else reuse it
+        annotationView.annotation  = annotation;
+    }
+    
+    annotationView.canShowCallout = YES;
+    annotationView.animatesDrop = YES;
+    //annotationView.draggable = YES;
+    // annotationView.image = nil;
+    
+    return annotationView;
+}
 
 
 #pragma mark - PartyFetcher Delegate
 
--(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying
+-(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying andLocations:(NSArray *)fratsPartyingLocations
 
 {
+    //Create all pin datas for frats and add to map
+    for (int i = 0; i < [fratsPartying count]; i++)
+    {
+        MKPointAnnotation *pinData = [[MKPointAnnotation alloc] init];
+        CLLocation *locationData = [fratsPartyingLocations objectAtIndex:i];
+        pinData.coordinate = locationData.coordinate;
+        pinData.title = [fratsPartying objectAtIndex:i];
+        [_mapView addAnnotation:pinData];
+    }
     
 }
 

@@ -13,7 +13,7 @@
 @class PartyFetcher;
 @protocol PartyFetcherDelegate
 
--(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying;
+-(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying andLocations:(NSArray *)fratsPartyingLocations;
 
 @end
 

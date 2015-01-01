@@ -65,6 +65,7 @@ const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
     
     
     [delegate.locationManager startUpdatingLocation];
+    [self segueToMapView];
 }
 
 //CHANGE Location Manager PROPERTIES here
@@ -115,7 +116,7 @@ const int LOCATIONAL_UPDATE_AFTER_RANGE_OF_METERS = 3;
 }
 
 //If user goes to map, locational updates should continue
--(IBAction)mapViewButton:(UIButton *)sender
+-(void)segueToMapView
 {
     MapViewController *mapVC = [[MapViewController alloc] init];
     [self presentViewController:mapVC animated:YES completion:nil];

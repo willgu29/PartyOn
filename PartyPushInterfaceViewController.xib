@@ -45,7 +45,7 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="1ju-cl-LIB"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm confused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdM-xV-yl1">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I'm confused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdM-xV-yl1">
                     <rect key="frame" x="130" y="542" width="76" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="76" id="3Qf-n4-OpE"/>
@@ -54,7 +54,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="info button" translatesAutoresizingMaskIntoConstraints="NO" id="lhg-YH-mqz">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="info button" translatesAutoresizingMaskIntoConstraints="NO" id="lhg-YH-mqz">
                     <rect key="frame" x="113" y="545" width="14" height="14"/>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9tp-43-cwH">
@@ -67,22 +67,13 @@
                         <constraint firstAttribute="height" constant="88" id="B5a-9W-Ym5"/>
                     </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Throughout the night you will receive custom notifcations to let you know what's poppin' and what's not " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqC-la-hz0">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Throughout the night you will receive custom notifcations to let you know what's poppin' and what's not " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqC-la-hz0">
                     <rect key="frame" x="8" y="375" width="304" height="128"/>
                     <color key="backgroundColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeM-sf-Zlq">
-                    <rect key="frame" x="105" y="482" width="110" height="30"/>
-                    <state key="normal" title="Go to Map View">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="mapViewButton:" destination="-1" eventType="touchUpInside" id="3hi-vJ-j7v"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.31372550129999999" blue="0.34117648010000001" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
@@ -92,7 +83,6 @@
                 <constraint firstItem="5sH-tE-pZf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="9Sy-t9-JNM"/>
                 <constraint firstItem="RdM-xV-yl1" firstAttribute="top" secondItem="EqC-la-hz0" secondAttribute="bottom" constant="39" id="9WM-cP-Q2y"/>
                 <constraint firstItem="9tp-43-cwH" firstAttribute="leading" secondItem="C8e-L0-us3" secondAttribute="trailing" constant="55" id="9cr-aK-JXD"/>
-                <constraint firstItem="RdM-xV-yl1" firstAttribute="top" secondItem="aeM-sf-Zlq" secondAttribute="bottom" constant="30" id="CQy-Fd-YUz"/>
                 <constraint firstItem="C8e-L0-us3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="HdO-va-PaO"/>
                 <constraint firstItem="g7i-rc-Yl3" firstAttribute="top" secondItem="9tp-43-cwH" secondAttribute="bottom" constant="83" id="INv-sJ-lt2"/>
                 <constraint firstItem="EqC-la-hz0" firstAttribute="top" secondItem="g7i-rc-Yl3" secondAttribute="bottom" constant="26" id="Idw-MC-J73"/>
@@ -102,8 +92,6 @@
                 <constraint firstItem="RdM-xV-yl1" firstAttribute="leading" secondItem="lhg-YH-mqz" secondAttribute="trailing" constant="3" id="YfI-vB-40U"/>
                 <constraint firstItem="lhg-YH-mqz" firstAttribute="centerY" secondItem="RdM-xV-yl1" secondAttribute="centerY" id="dZE-Jl-APe"/>
                 <constraint firstItem="lhg-YH-mqz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="113" id="fuy-9W-a8d"/>
-                <constraint firstItem="aeM-sf-Zlq" firstAttribute="centerX" secondItem="EqC-la-hz0" secondAttribute="centerX" id="htM-bX-4h6"/>
-                <constraint firstItem="lhg-YH-mqz" firstAttribute="top" secondItem="aeM-sf-Zlq" secondAttribute="bottom" constant="33" id="i8f-0r-Qdv"/>
                 <constraint firstItem="EqC-la-hz0" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="jss-kQ-qLA"/>
                 <constraint firstItem="g7i-rc-Yl3" firstAttribute="centerX" secondItem="EqC-la-hz0" secondAttribute="centerX" id="kD7-fw-4Da"/>
                 <constraint firstItem="EqC-la-hz0" firstAttribute="leading" secondItem="C8e-L0-us3" secondAttribute="leading" id="nqD-DK-6Sg"/>
