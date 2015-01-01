@@ -8,26 +8,59 @@
 
 #import "PartyFetcher.h"
 
+@interface PartyFetcher ()
+
+@property (nonatomic, strong) NSMutableArray *fratsPartyingNow;
+
+@end
+
 @implementation PartyFetcher
 
--(void)GET
+@synthesize delegate;
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self initialSetup];
+    }
+    return self;
+}
+
+-(void)initialSetup
+{
+    _fratsPartyingNow = [[NSMutableArray alloc] init];
+    [self getFratsFromWebsite];
+}
+
+-(void)getFratsFromWebsite
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://100.110.224.170:3000" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://www.pleasetapthat.com/partyOn/data/partyData.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        [self PARSE:responseObject];
+        [self parseJSONFratsPartying:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        //Alert check internet connection
     }];
+    
 }
 
-
--(void)PARSE:(id)responseObject
+-(void)parseJSONFratsPartying:(id)responseObject
 {
-    //Get Frat Name
-    //If frat name matches one of existing combinination of letters, place a pin at that frat location
-    //
+    for (id objects in responseObject)
+    {
+        NSLog(@"object: %@",objects);
+        NSString *fratName = [objects valueForKey:@"fratName"];
+        NSLog(@"Frat name: %@", fratName);
+        [_fratsPartyingNow addObject:fratName];
+    }
+    
+    [delegate parseCompletionWithFratsPartying:_fratsPartyingNow];
 }
+
+
 
 
 @end

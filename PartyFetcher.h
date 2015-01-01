@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
+
+@class PartyFetcher;
+@protocol PartyFetcherDelegate
+
+-(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying;
+
+@end
+
 @interface PartyFetcher : NSObject
+
+@property (nonatomic, assign) id delegate;
+
 
 @end

@@ -11,6 +11,8 @@
 
 @interface MapViewController ()
 
+@property (nonatomic, strong) PartyFetcher *partyFetcher;
+
 @end
 
 @implementation MapViewController
@@ -18,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    _partyFetcher = [[PartyFetcher alloc] init];
+    _partyFetcher.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,10 +39,27 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Adding Pin to Map
+
+-(void)addPin
+{
+//    MKPointAnnotation *pinData = [[MKPointAnnotation alloc] init];
+    
+//    MKPinAnnotationView *pinAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:<#(id<MKAnnotation>)#> reuseIdentifier:(NSString *)]
+}
 
 #pragma mark - Map Kit Delegates
 
 
+
+
+#pragma mark - PartyFetcher Delegate
+
+-(void)parseCompletionWithFratsPartying:(NSArray *)fratsPartying
+
+{
+    
+}
 
 #pragma mark - Support Buttons
 

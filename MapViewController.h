@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MapKit/MapKit.h>
+#import "PartyFetcher.h"
 
-@interface MapViewController : UIViewController  <MFMailComposeViewControllerDelegate, MKMapViewDelegate>
+@interface MapViewController : UIViewController  <MFMailComposeViewControllerDelegate, MKMapViewDelegate, PartyFetcherDelegate>
 
 @end
