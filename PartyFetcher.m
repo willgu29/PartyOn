@@ -37,6 +37,7 @@
     _fratsPartyingNow = [[NSMutableArray alloc] init];
     _fratLocationsPartying = [[NSMutableArray alloc] init];
     [self getFratsFromWebsite];
+    [self initFratLocations];
 }
 
 -(void)getFratsFromWebsite
