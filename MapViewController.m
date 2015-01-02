@@ -9,6 +9,9 @@
 #import "MapViewController.h"
 #import "AFNetworking.h"
 
+
+const NSInteger METERS_PER_MILE = 1609.344;
+
 @interface MapViewController ()
 
 @property (nonatomic, strong) PartyFetcher *partyFetcher;
@@ -28,6 +31,10 @@
 {
     _partyFetcher = [[PartyFetcher alloc] init];
     _partyFetcher.delegate = self;
+    
+    CLLocationCoordinate2D zoomLocation = CLLocationCoordinate2DMake(34.03, -118.27);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, METERS_PER_MILE, METERS_PER_MILE);
+    [_mapView setRegion:viewRegion animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

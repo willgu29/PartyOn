@@ -26,30 +26,30 @@
                         <action selector="backButton:" destination="-1" eventType="touchUpInside" id="SkY-9y-AC8"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-Bv-anw">
-                    <rect key="frame" x="131" y="132" width="59" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-Bv-anw">
+                    <rect key="frame" x="131" y="144" width="59" height="30"/>
                     <state key="normal" title="Clickedy">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-hb-kE7">
-                    <rect key="frame" x="8" y="170" width="304" height="390"/>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-hb-kE7">
+                    <rect key="frame" x="8" y="182" width="304" height="378"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="dxc-7g-gGd"/>
                     </connections>
                 </mapView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xND-wp-vB8">
-                    <rect key="frame" x="8" y="46" width="304" height="88"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xND-wp-vB8">
+                    <rect key="frame" x="8" y="46" width="304" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="HBE-Kv-uNy"/>
                     </constraints>
-                    <string key="text">The Party On team is currently working on providing a map-based display of available parties around UCLA campus. Have any suggestions? Ideas? Comments? GO HAM.</string>
+                    <string key="text">The Party On team is currently working on new and exciting features. Have any suggestions? Ideas? Comments? GO HAM. (The map displays all current parties happening RIGHT NOW.)</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt1-mh-Wvp">
-                    <rect key="frame" x="131" y="132" width="59" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt1-mh-Wvp">
+                    <rect key="frame" x="131" y="144" width="59" height="30"/>
                     <state key="normal" title="Clickedy">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
